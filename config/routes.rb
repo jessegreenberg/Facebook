@@ -1,4 +1,6 @@
 Facebook::Application.routes.draw do
+  get "facebook_pages/login"
+  get "facebook_pages/newsfeed"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
