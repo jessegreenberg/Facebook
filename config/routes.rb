@@ -1,10 +1,10 @@
 Facebook::Application.routes.draw do
-  get "facebook_pages/login"
-  get "facebook_pages/newsfeed"
-  get "facebook_pages/profile_preferences"
-  get "facebook_pages/profile_page"
-  get "facebook_pages/friend_list"
-  get "facebook_pages/friend_search"
+	match '/login', to: 'facebook_pages#login', via: 'get'
+	match '/newsfeed', to: 'facebook_pages#newsfeed', via: 'get'
+	match '/preferences', to: 'facebook_pages#profile_preferences', via: 'get'
+	match '/profile', to: 'facebook_pages#profile_page', via: 'get'
+	match '/friends', to: 'facebook_pages#friend_list', via: 'get'
+	match '/results', to: 'facebook_pages#friend_search', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
