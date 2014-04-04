@@ -1,6 +1,7 @@
 class FacebookPagesController < ApplicationController
-  def login
-  end
+	def login
+		render :layout => false
+	end
 
   def newsfeed
   end
