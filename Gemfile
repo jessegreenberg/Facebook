@@ -30,3 +30,6 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 end
 
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
+
