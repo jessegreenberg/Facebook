@@ -1,7 +1,7 @@
 <% provide(:intro, 'Welcome to') %>
 <% provide(:pagename, 'Log In or Sign Up!') %>
 
-<!DOCTYPE html>
+
 <html>
 	<%= render 'layouts/title' %>
 	<body>
@@ -11,6 +11,7 @@
 					Connect with friends and share your interests on facebook!
 				</h2>
 			</h1>
+			<%= yield %>
 		</div>
 	</body>
 </html>
