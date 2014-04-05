@@ -3,13 +3,14 @@ require 'spec_helper'
 describe "Facebook Pages" do	
 	describe "Login Page" do
 		it "should have the content 'facebook'" do
-			visit login_path
+			visit root_path
 			expect(page).to have_content('facebook')
 		end
 		it "should have the title 'Welcome to Facebook | Log In or Sign Up!'" do
-			visit login_path
+			visit root_path
 			expect(page).to have_title("Welcome to Facebook | Log In or Sign Up!")
 		end
+			
 	end
 	
 	describe "Newsfeed" do

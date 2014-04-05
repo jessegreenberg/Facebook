@@ -1,13 +1,18 @@
 <% provide(:intro, 'Welcome to') %>
 <% provide(:pagename, 'Log In or Sign Up!') %>
 
-
-<div class="center hero-unit">
-	<h1>facebook</h1>
-		<h2>
-			Connect with friends and share your interests on facebook!
-		</h2>
-	
-</div>
+<!DOCTYPE html>
+<html>
+	<%= render 'layouts/title' %>
+	<body>
+		<div class="center hero-unit">
+			<h1>facebook</h1>
+				<h2>
+					Connect with friends and share your interests on facebook!
+				</h2>
+			</h1>
+		</div>
+	</body>
+</html>
 
 <%= link_to image_tag("derpbook.png", alt: "Derpbook"), '#' %>

@@ -1,4 +1,5 @@
 Facebook::Application.routes.draw do
+  get "user/new"
 	root 'facebook_pages#login', via: 'get'
 	match '/newsfeed', to: 'facebook_pages#newsfeed', via: 'get'
 	match '/preferences', to: 'facebook_pages#profile_preferences', via: 'get'
