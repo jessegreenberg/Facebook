@@ -1,3 +1,5 @@
+# This comment is less helpful than you think
+
 source 'https://rubygems.org'
 
 #ruby-gemset=railstutorial_rails_4_0
