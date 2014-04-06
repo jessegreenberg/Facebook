@@ -7,21 +7,12 @@
 	Validates users' personal information, such as email and password
 
 # Views: friend_list.html.erb, friend_search.html.erb, login.html.erb, newsfeed.html.erb, profile_page.html.erb, profile_preferences.html.erb
-	friend_list - This is the facebook Friend list, it will show a list of the
-		users current friends as well as a list of pending friend
-		reqeusts.
-	friend_search - This is the Friend Search page.  Users can enter search terms
-		(specifically a user's last name) and a list of users with that
-		last name will appear here.  The user can then easily send 
-		that user a friend request.
-	login - This is the default page for Facebook, it allows users to sign on and has a greeting message
-	newsfeed - This is the users Newsfeed.  It is a compilation of all posts
-			that the user and his friends have made.  It will be possible
-			for the user to delete his own posts from this page.
-	profile_page - This is the users profile page, it will have all information
-		in a displayable format for the user and the user's friends.
-	profile_preferences - This will be the profile preferences page where users can 
-		decide what information they want to display to their friends.
+	friend_list - This is the facebook Friend list, it will show a list of 			the users current friends as well as a list of pending friend 			reqeusts.
+	friend_search - This is the Friend Search page.  Users can enter 			search terms (specifically a user's last name) and a list of 			users with that last name will appear here.  The user can then 			easily send that user a friend request.
+	login - This is the default page for Facebook, it allows users to sign 			on and has a greeting message
+	newsfeed - This is the users Newsfeed.  It is a compilation of all 			posts that the user and his friends have made.  It will be 			possible for the user to delete his own posts from this page.
+	profile_page - This is the users profile page, it will have all 		information in a displayable format for the user and the 			user's friends.
+	profile_preferences - This will be the profile preferences page where 			users can decide what information they want to display to 			their friends.
 
 # Controller: facebook_pages_controller.rb, users_controller.rb
 	Contains default code needed for structure, inherits the data it uses.
