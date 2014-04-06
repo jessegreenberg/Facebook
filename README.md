@@ -1,5 +1,5 @@
 # Ruby on Rails Project - - - Facebook
-
+# This is a comment
 This is the final project for CSCI 3308. The project is a recreation of the facebook application.
 
 
