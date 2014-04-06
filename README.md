@@ -26,9 +26,11 @@ user.rb
  - login.html.erb
 
  		This is the default page for Facebook, it allows users to sign on and has a greeting message
-		newsfeed - This is the users Newsfeed. It is a compilation of all posts that the user and his friends have made.  It will be possible for the user to delete his own posts from this page.
-	
+		
  - newsfeed.html.erb
+
+ 		This is the users Newsfeed. It is a compilation of all posts that the user and his friends have made.  It will be possible for the user to delete his own posts from this page.
+	
 
  - profile_page.html.erb
 
