@@ -1,0 +1,23 @@
+1) These commands link your computer with your email and accounts. This information can be used to link what is on your local machine with a server, such as github.
+
+2) This allows you to authenticate a trusted computer without needing to enter a password every time.
+
+3) https://github.com/jessegreenberg/Facebook
+
+4) Forking the code would create separate branches and complicate the process of working with others. Cloning lets us all make changes to the same code and keep the files consistent.
+
+5) After editing the file and pushing it to Github, the others in my group saw the change and were able to update their local repositories with my edit. I had to add the file, commit it, and push it.
+
+6) When trying to change the same code as my group, we got a push error because Github got too many changes to the same part of a file.
+
+7) To fix the problem from Question 6, we had to make sure to pull the code first to have the most up-to-date code, then make changes, and then push it. Everyone's files need to be up to date and consistent.
+
+8) Creates a local branch of the master repository and switches to it.
+
+9) When you merge, it incorporates changes from the commits. The purpose of the workflow is so that we can have simultaneous updates from multiple people.
+
+10) When in detached HEAD state, you can look around, make experimental changes and commit them, and you can discard commits you've made in this state without impacting any branches.
+
+11) Tagging a commit basically creates a branch that won't change so that you can view earlier work or revert your code.
+
+12) You can revert your code using checkout to rollback specific files or use revert to change back to a branch.
