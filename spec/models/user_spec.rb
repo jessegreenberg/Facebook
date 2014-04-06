@@ -2,13 +2,25 @@ require 'spec_helper'
 
 describe User do
 
-	before { @user = User.new(name: "Example User", email: "user@example.com") }
+	before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar") }
 	
 	subject { @user }
-	
+	# General attributes in the schema
 	it { should respond_to(:name) }
-	it { should respond_to(:email)}
+	it { should respond_to(:email) }
 	
+	# pasword_digest will hold the hashed version of the password
+	it { should respond_to(:password_digest) }
+	
+	# the following are for password creation - ensure they are equal
+	# BEFORE saving to the db.
+	it {should respond_to(:password) }
+	it {should respond_to(:password_confirmation) }
+	
+	# password authentication
+	it { should respond_to(:authenticate)}
+	
+	#existence validation
 	it { should be_valid }
 	
 	describe "When name is not present" do
@@ -56,4 +68,43 @@ describe User do
 		
 		it { should_not be_valid }
 	end
+	
+	describe "when password is not present" do
+		before do
+			@user = User.new(name: "Example User", email: "user@example.com", password: " ", password_confirmation: " ")
+		end
+		it { should_not be_valid }
+	end
+	
+	describe "when password doesnt match confirmation" do
+		before { @user.password_confirmation = "mismatch" }
+		it { should_not be_valid }
+	end
+	
+	# The case where they DO match is already covered by line ' it {should be_valid}
+	
+	# There is a ton goin on here, go back and understand it.
+	# A LOT of the functionality is (if not ALL) is implemented with
+	# has_secure_password.  that method requires specific test names
+	# like password_confirmation.
+	describe "return value of authenticate method" do
+		before { @user.save }
+		let(:found_user) { User.find_by(email: @user.email) }
+		
+		describe "with valid password" do
+			it { should eq found_user.authenticate(@user.password) }
+		end
+		
+		describe "with invalid password" do
+			let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+			it { should_not eq user_for_invalid_password }
+			specify { expect(user_for_invalid_password).to be_false }
+		end
+	end
+	
+	describe "Creating a password that is too short" do
+		before { @user.password = @user.password_confirmation = "a" * 5 }
+		it { should be_invalid }
+	end
+	
 end
