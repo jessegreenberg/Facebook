@@ -1,8 +1,13 @@
 # Ruby on Rails Project - - - Facebook
 
+<<<<<<< HEAD
 THIS IS A CHANGE
 
 This is the final project for CSCI 3308.  The project is a recreation
 of the facebook application.  
+=======
+This is the final project for CSCI 3308. The project is a recreation of the facebook application.
+>>>>>>> b65a2834b226796dbb9e32b804572554e410e8f4
 
 Look, I added my name! : Nicholas Reynders
+
