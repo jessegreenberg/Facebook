@@ -1,6 +1,6 @@
 # Ruby on Rails Project - - - Facebook
 
-Changed this file again too homedog!
+THIS IS A CHANGE
 
 This is the final project for CSCI 3308.  The project is a recreation
 of the facebook application.  
