@@ -8,6 +8,7 @@ html {
 }
 
 body {
+	line-height: 140%;
 	padding-top :60px;
 }
 
@@ -20,9 +21,14 @@ textarea {
 }
 
 .center {
+	background-color: teal;
 	text-align: center;
+	height: 100%;
 	h1 {
 		margin-bottom: 10px;
+	}
+	h3 {
+		float: top;
 	}
 }
 
@@ -30,26 +36,56 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
+	line-height: 0;
 }
+
 
 h1 {
 	font-size: 3em;
 	letter-spacing: -2px;
-	margin-bottom: 30px;
-	text-align: center;
+	margin-bottom: 20px;
+	text-align: left;
 }
 
 h2{
 	font-size: 1.2em;
 	letter-spacing: -1px;
 	margin-bottom: 30px;
-	text-align: center;
+	text-align: left;
 	font-weight: normal;
 	color: #999;
+}
+h3{
+	font-size: 2em;
+	letter-spacing: -1px;
+	text-align: right;
+	float: 10%;
 }
 
 p { 
 	font-size: 1.1em;
 	line-height: 1.7em;
 }
+
+
+/* forms */
+input, textarea, select, .undeditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	margin-bottom: 15px;
+	//@include box_sizing;
+}
+
+input {
+	height: auto !important;
+}
+
+
+#error_explanation {
+	color: #f00;
+	ul {
+		list-stile: none;
+		margin: 0 0 10px 0;
+	}
+}
+

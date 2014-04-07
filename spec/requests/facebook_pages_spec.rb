@@ -1,67 +1,63 @@
 require 'spec_helper'
 
-describe "Facebook Pages" do	
+describe "Facebook Pages" do
+	subject { page }
+	
 	describe "Login Page" do
-		it "should have the content 'facebook'" do
-			visit root_path
-			expect(page).to have_content('facebook')
-		end
-		it "should have the title 'Welcome to Facebook | Log In or Sign Up!'" do
-			visit root_path
-			expect(page).to have_title("Welcome to Facebook | Log In or Sign Up!")
-		end
+		before { visit root_path }
+		it { should have_content("facebook") }
+		it { should have_content("Sign Up") }
+		it { should have_title("Welcome to Facebook | Log In or Sign Up!") }
+		
+		# For Login Functionality:
+		let(:submit){ "Create my account" }
+		
+		describe "with invalid information"
+			it "should not create a user" do
+				expect {click_button submit}.not_to change(User, :count)
+			end
+		
+		describe "with valid information" do
+			before do
+				fill_in "Name", with: "Example User"
+				fill_in "Email", with: "user@example.com"
+				fill_in "Password", with: "foobar"
+				fill_in "Confirmation", with: "foobar"
+			end
 			
+			it "should create a user" do
+				expect { click_button submit }.to change(User, :count).by(1)
+			end
+		end
 	end
 	
 	describe "Newsfeed" do
-		it "should have the content 'Newsfeed'" do
-			visit newsfeed_path
-			expect(page).to have_content('Newsfeed')
-		end
-		it "should have the title 'Facebook | Newsfeed'" do
-			visit newsfeed_path
-			expect(page).to have_title("Facebook | Newsfeed")
-		end
+		before { visit newsfeed_path }
+		it { should have_content("Newsfeed") }
+		it { should have_title("Facebook | Newsfeed") }
 	end
 	
 	describe "Profile Preferences" do
-		it "should have the title 'Facebook | Profile Preferences'" do
-			visit preferences_path
-			expect(page).to have_title("Facebook | Profile Preferences")
-		end
-		it "should have the content 'Profile Preferences'" do
-			visit preferences_path
-			expect(page).to have_content('Profile Preferences')
-		end
+		before { visit preferences_path }
+		it { should have_content("Profile Preferences") }
+		it { should have_title("Facebook | Profile Preferences") }
 	end
+	
 	describe "Profile Page" do
-		it "should have the title 'Facebook | Profile Page'" do
-			visit profile_path
-			expect(page).to have_title("Facebook | Profile")
-		end
-		it "should have the content 'Profile Page'" do
-			visit profile_path
-			expect(page).to have_content('Profile')
-		end
+		before { visit profile_path }
+		it { should have_content("Profile Page") }
+		it { should have_title("Facebook | Profile Page") }
 	end
+	
 	describe "Friend List" do
-		it "should have the title 'Facebook | Friends'" do
-			visit friends_path
-			expect(page).to have_title("Facebook | Friends")
-		end
-		it "should have the content 'Friends'" do	
-			visit friends_path
-			expect(page).to have_content('Friends')
-		end
+		before { visit friends_path }
+		it { should have_content("Friends") }
+		it { should have_title("Facebook | Friends") }
 	end
+	
 	describe "Search Page" do
-		it "should have the title 'Facebook | Friend Search'" do
-			visit results_path
-			expect(page).to have_title("Facebook | Friend Search")
-		end
-		it "sould have the content 'Friend Search'" do
-			visit results_path
-			expect(page).to have_content('Friend Search')
-		end
+		before { visit results_path }
+		it { should have_content("Friend Search") }
+		it { should have_title("Facebook | Friend Search") }
 	end
 end
