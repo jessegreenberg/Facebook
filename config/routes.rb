@@ -1,13 +1,15 @@
 Facebook::Application.routes.draw do
 
 	# recources gives us all actions needed for 
-	# ONLY the new and create actions for now.  Also re-routing to root so 
+	# re-routing to root so 
 	# we have ability to create on home page.
-	resources :users, :only => [:new, :create], :path => '', :path_names => {:new => ''}
-	#root 'facebook_pages#login', via: 'get'
+	resources :users
+	root 'users#new'
+	match '/newsfeed/:id', to: 'users#newsfeed', via: 'get'
+	
+	# All of the routes below should probably be in the users resource!
 	match '/newsfeed', to: 'facebook_pages#newsfeed', via: 'get'
 	match '/preferences', to: 'facebook_pages#profile_preferences', via: 'get'
-	match '/profile', to: 'facebook_pages#profile_page', via: 'get'
 	match '/friends', to: 'facebook_pages#friend_list', via: 'get'
 	match '/results', to: 'facebook_pages#friend_search', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -21,7 +23,6 @@ Facebook::Application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

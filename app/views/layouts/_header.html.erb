@@ -4,9 +4,9 @@
 			<%= link_to "facebook", '#', id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
-					<li><%= link_to "Newsfeed", newsfeed_path %></li>
-					<li><%= link_to "Friends", friends_path %></li>
-					<li><%= link_to "Profile", profile_path %></li>
+					<li><%= link_to "Newsfeed", '#' %></li>
+					<li><%= link_to "Friends", '#' %></li>
+					<li><%= link_to "Profile", user_path(@user.id) %></li>
 				</ul>
 			</nav>
 		</div>
