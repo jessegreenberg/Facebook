@@ -17,6 +17,9 @@ describe User do
 	it {should respond_to(:password) }
 	it {should respond_to(:password_confirmation) }
 	
+	#Session token response:
+	it { should respond_to(:remember_token) }
+	
 	# password authentication
 	it { should respond_to(:authenticate)}
 	
@@ -105,6 +108,11 @@ describe User do
 	describe "Creating a password that is too short" do
 		before { @user.password = @user.password_confirmation = "a" * 5 }
 		it { should be_invalid }
+	end
+	
+	describe "remember token" do
+		before { @user.save }
+		its(:remember_token) { should_not be_blank }
 	end
 	
 end

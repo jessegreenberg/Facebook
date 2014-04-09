@@ -10,5 +10,7 @@ describe "User Pages" do
 		it { should have_content(user.name) }
 		it { should have_title("Facebook | #{user.name}") }
 	end
+	
+
 end
 	

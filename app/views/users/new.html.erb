@@ -4,7 +4,20 @@
 <html>
 	<%= render 'layouts/title' %>
 	<h1>facebook</h1>
+	<h3>Sign In </h3>
 	<body>
+		<div class="new hero-unit" >
+			<%= form_for(:session, url: sessions_path) do |f| %>
+					
+				<%= f.label :email %>
+				<%= f.text_field :email%>
+				
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+					
+				<%= f.submit "Sign In", class: "btn btn-larg btn-primary" %>
+			<% end %>
+		</div>
 		<div class="center hero-unit">
 			<h2>
 				Connect with friends and share your interests on facebook!
@@ -26,7 +39,9 @@
 					<% end %>
 				</div>
 			<%= yield %>
+			</div>
 		</div>
+		
 	</body>
 </html>
 

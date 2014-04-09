@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params) # Not the final.
 		if @user.save
+			flash[:success] = "Welcome to Facebook!"
 			redirect_to @user
 		else
 			render 'new'

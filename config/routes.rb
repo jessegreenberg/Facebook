@@ -4,9 +4,12 @@ Facebook::Application.routes.draw do
 	# re-routing to root so 
 	# we have ability to create on home page.
 	resources :users
+	#sessions resource with new, create, and destroy, gives us 
+	#everything we need to control sign in and sign out of users.
+	resources :sessions, only: [:new, :create, :destroy]
 	root 'users#new'
-	match '/newsfeed/:id', to: 'users#newsfeed', via: 'get'
-	
+	match '', to: 'sessions#new', via: 'get'
+	match '/signout', to: 'sessions#destroy', via: 'delete' 
 	# All of the routes below should probably be in the users resource!
 	match '/newsfeed', to: 'facebook_pages#newsfeed', via: 'get'
 	match '/preferences', to: 'facebook_pages#profile_preferences', via: 'get'
