@@ -6,7 +6,7 @@ module SessionsHelper
     user.update_attribute(:remember_token, User.hash(remember_token))
     self.current_user = user
   end
-
+	# checks to see if there is a current user in the session.
   def signed_in?
     !current_user.nil?
   end
