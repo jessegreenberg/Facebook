@@ -6,6 +6,8 @@
 	<h1>facebook</h1>
 	<h3>Sign In </h3>
 	<body>
+		<div class="foo" >
+		
 		<div class="new hero-unit" >
 			<%= form_for(:session, url: sessions_path) do |f| %>
 					
@@ -17,6 +19,7 @@
 					
 				<%= f.submit "Sign In", class: "btn btn-larg btn-primary" %>
 			<% end %>
+		</div>
 		</div>
 		<div class="center hero-unit">
 			<h2>
