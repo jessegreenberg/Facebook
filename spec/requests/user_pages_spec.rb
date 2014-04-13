@@ -63,18 +63,17 @@ describe "User Pages" do
       			specify { expect(user.reload.name).to  eq new_name }
       			specify { expect(user.reload.email).to eq new_email }
 		end
-	end
 
-    	describe "page" do
-      		it { should have_content("Update your profile") }
-      		it { should have_title("Facebook | Preferences") }
-    	end
+	    	describe "page" do
+      			it { should have_content("Update your profile") }
+      			it { should have_title("Facebook | Preferences") }
+    		end
 
-    	describe "with invalid information" do
-      		before { click_button "Save changes" }
+    		describe "with invalid information" do
+      			before { click_button "Save changes" }
 
-      		it { should have_content('error') }
-    	end
-  end
+	      		it { should have_content('error') }
+    		end
+  	end
 end
 	
