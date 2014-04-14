@@ -45,3 +45,10 @@ user.rb
  - facebook_pages_controller.rb
  - users_controller.rb
  	- Contains default code needed for structure, inherits the data it uses.
+
+
+##Todo:
+
+- Change root\_\* paths to signin\_\* paths
+	- includes changing routes aswell
+
