@@ -69,7 +69,6 @@ describe "Authentication" do
 
 			describe "submitting a GET request to the Users#edit action" do
 				before { get edit_user_path(wrong_user) }
-				specify { expect(response.body).not_to match(full_title('Edit user')) }
 				specify { expect(response).to redirect_to(root_url) }
 			end
 
