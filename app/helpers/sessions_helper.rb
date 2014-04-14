@@ -11,16 +11,15 @@ module SessionsHelper
     !current_user.nil?
   end
 
-	# The current_user=() allows for easy function definition for simple assignment.
-  def current_user=(user)
-    @current_user = user
-  end
-
 	# ||= is a smoothe way to set the @current_user only if the @current_user is nil.
   def current_user
     remember_token = User.hash(cookies[:remember_token])
     @current_user ||= User.find_by(remember_token: remember_token)
   end
+
+	def current_user?(user)
+		user == current_user
+	end
 
   def sign_out
     current_user.update_attribute(:remember_token, User.hash(User.new_remember_token))
