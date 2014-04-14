@@ -52,3 +52,4 @@ user.rb
 - Change root\_\* paths to signin\_\* paths
 	- includes changing routes aswell
 
+- Listing 9.16
