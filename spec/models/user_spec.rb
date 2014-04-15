@@ -23,6 +23,10 @@ describe User do
 	# password authentication
 	it { should respond_to(:authenticate)}
 	
+	# Userpost association validation ADMIN GETS ADDED LATER
+	## it { should respond_to(:admin) }
+	it { should respond_to(:userposts) }
+	
 	#existence validation
 	it { should be_valid }
 	

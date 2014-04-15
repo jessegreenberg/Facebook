@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
+	# REGEX to ensure valid email pattern
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	
+	# Create association between userposts
+	has_many :userposts
 	
 	# callback method to downcase the email before saving to user db.
 	# Not all adapters use case sensitive indices. I think this
