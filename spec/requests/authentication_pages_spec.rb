@@ -47,6 +47,24 @@ describe "Authentication" do
 
 		describe "for non-signed-in users" do
 			let(:user) { FactoryGirl.create(:user) }
+			
+			describe "when attempting to visit a protected page" do
+				before do
+					visit edit_user_path(user)
+					within(".foo") do
+						fill_in "Email", with: user.email
+						fill_in "Password", with: user.password
+						click_button "Sign In"
+					end
+				end
+				
+				describe "after signing in" do
+					
+					it "should render the previously desired protected page" do
+						expect(page).to have_title('Facebook | Preferences')
+					end
+				end
+			end
 
 			describe "in the Users controller" do
 

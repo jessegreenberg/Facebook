@@ -43,7 +43,10 @@ class UsersController < ApplicationController
 		# Before filters
 
 		def signed_in_user
-			redirect_to root_url, notice: "Please sign in." unless signed_in?
+			unless signed_in?
+				store_location
+				redirect_to root_url, notice: "Please sign in."
+			end
 		end
 
 		def correct_user
