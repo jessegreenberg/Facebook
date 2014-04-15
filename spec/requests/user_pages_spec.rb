@@ -75,5 +75,24 @@ describe "User Pages" do
 	      		it { should have_content('error') }
     		end
   	end
+
+	describe "index" do
+		let(:user) { FactoryGirl.create(:user) }
+		before do
+			sign_in user
+			FactoryGirl.create(:user, name: "Doug", email: "DougFresh@example.com")
+			FactoryGirl.create(:user, name: "Nick", email: "NickSuperFly@example.com")
+			visit users_path 
+		end
+
+		it { should have_title('Facebook | Friends') }
+		it { should have_content('Friends') }
+		
+		it "should list all users" do
+			User.all.each do |user|
+				expect(page).to have_selector('li', text:user.name)
+			end
+		end
+	end	
 end
 	

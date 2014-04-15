@@ -34,6 +34,7 @@ describe "Authentication" do
 			it { should have_link('Profile', href: user_path(user)) }
 			it { should have_link('Profile Preferences', href: edit_user_path(user)) }
 			it { should have_link('Sign Out', href: signout_path) }
+			it { should have_link('Friends', href: users_path) }
 			it { should_not have_link('Sign In', href: root_path) }
 
 			describe "followed by signout" do
@@ -76,6 +77,11 @@ describe "Authentication" do
 				describe "submitting to the update action" do
 					before { patch user_path(user) }
 					specify { expect(response).to redirect_to(root_path) }
+				end
+
+				describe "visiting the user index" do
+					before { visit users_path }
+					it { should have_title('Facebook | Log In or Sign Up!') }
 				end
 			end
 		end
