@@ -1,3 +1,14 @@
 <% provide(:pagename, @user.name) %>
+<div class="row">
 
-<h1><%= @user.name %></h1>
+	<h1><%= @user.name %></h1>
+	
+	<div class="span8">
+		<% if @user.userposts.any? %>
+			<ol class="userposts">
+				<%= render @userposts %>
+			</ol>
+			<%= will_paginate @userposts %>
+		<% end %>
+	</div>
+</div>

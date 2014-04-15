@@ -23,7 +23,7 @@ describe User do
 	# password authentication
 	it { should respond_to(:authenticate)}
 	
-	# Userpost association validation ADMIN GETS ADDED LATER
+	# Userpost association validation ADMIN GETS ADDED LATER if desired
 	## it { should respond_to(:admin) }
 	it { should respond_to(:userposts) }
 	
@@ -117,6 +117,20 @@ describe User do
 	describe "remember token" do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "userpost associations" do
+		before { @user.save }
+		let!(:older_userpost) do
+			FactoryGirl.create(:userpost, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_userpost) do
+			FactoryGirl.create(:userpost, user: @user, created_at: 1.hour.ago)
+		end
+
+		it "should have the older post ordered second" do
+			expect(@user.userposts.to_a).to eq [newer_userpost, older_userpost]
+		end
 	end
 	
 end

@@ -26,4 +26,14 @@ describe Userpost do
 		before { @userpost.user_id = nil }
 		it { should_not be_valid }
 	end
+
+	describe "when user id is not present" do
+		before { @userpost.user_id = nil }
+		it { should_not be_valid }	
+	end
+
+	describe "with blank content" do
+		before { @userpost.content = "" }
+		it { should_not be_valid }
+	end
 end

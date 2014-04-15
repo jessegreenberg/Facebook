@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
+		# note that paginate can even work through association!
+		@userposts = @user.userposts.paginate(page: params[:page])
 	end
 	
 	def edit
