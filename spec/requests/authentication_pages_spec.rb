@@ -9,6 +9,7 @@ describe "Authentication" do
 		
 		it { should have_content('Sign In') }
 		it { should have_title('Welcome to Facebook | Log In or Sign Up!') }
+		
 	end
 	
 	describe "The signin action" do
@@ -35,7 +36,7 @@ describe "Authentication" do
 			it { should have_link('Profile Preferences', href: edit_user_path(user)) }
 			it { should have_link('Sign Out', href: signout_path) }
 			it { should have_link('Friends', href: users_path) }
-			it { should_not have_link('Sign In', href: root_path) }
+			it { should_not have_link('Sign In', href: new_user_path) }
 
 			describe "followed by signout" do
 				before { click_link "Sign Out" }
@@ -76,7 +77,7 @@ describe "Authentication" do
 
 				describe "submitting to the update action" do
 					before { patch user_path(user) }
-					specify { expect(response).to redirect_to(root_path) }
+					specify { expect(response).to redirect_to(new_user_path) }
 				end
 
 				describe "visiting the user index" do
@@ -89,12 +90,12 @@ describe "Authentication" do
 
 				describe "submitting to the create action" do
 					before {post userposts_path }
-					specify { expect(response).to redirect_to(root_path) }
+					specify { expect(response).to redirect_to(new_user_path) }
 				end
 
-				describe "submitting the descroy action" do
+				describe "submitting the destroy action" do
 					before { delete userpost_path(FactoryGirl.create(:userpost)) }
-					specify { expect(response).to redirect_to(root_path) }
+					specify { expect(response).to redirect_to(new_user_path) }
 				end
 			end
 				
@@ -107,12 +108,12 @@ describe "Authentication" do
 
 			describe "submitting a GET request to the Users#edit action" do
 				before { get edit_user_path(wrong_user) }
-				specify { expect(response).to redirect_to(root_url) }
+				specify { expect(response).to redirect_to(new_user_url) }
 			end
 
 			describe "submitting a PATCH request to the Users#update action" do
 				before { patch user_path(wrong_user) }
-				specify { expect(response).to redirect_to(root_url) }
+				specify { expect(response).to redirect_to(new_user_url) }
 			end
 		end
 	end

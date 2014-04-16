@@ -1,9 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
 		<div class="container">
-			<%= link_to "facebook", '#', id: "logo" %>
 			<nav>
-				
 				<ul class="nav pull-right">
 					<% if signed_in? %>
 						<li><%= link_to "Newsfeed", '#' %></li>
@@ -24,7 +22,7 @@
 							</ul>
 						</li>
 					<% else %>
-						<li><%= link_to "Sign In", root_path %></li>
+						<li><%= link_to "Sign In", new_user_path %></li>
 					<% end %>
 				</ul>
 			</nav>

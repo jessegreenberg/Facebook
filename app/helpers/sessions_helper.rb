@@ -28,7 +28,7 @@ module SessionsHelper
   def signed_in_user
 	unless signed_in?
 		store_location
-		redirect_to root_url, notice: "Please Sign In."
+		redirect_to new_user_url, notice: "Please Sign In."
 	end
   end
 

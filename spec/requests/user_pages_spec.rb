@@ -4,7 +4,7 @@ describe "User Pages" do
 	subject { page }
 	
 	describe "sign up" do
-		before { visit root_path }
+		before { visit new_user_path }
 		let(:submit) { "Create Account" }
 
 		describe "with valid information" do
