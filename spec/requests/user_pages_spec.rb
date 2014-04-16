@@ -68,7 +68,7 @@ describe "User Pages" do
         			click_button "Save changes"
       			end
 
-     			it { should have_selector('div.alert.alert-success') }
+     			it { should have_selector("div.alert.alert-success") }
       			it { should have_link('Sign Out', href: signout_path) }
       			specify { expect(user.reload.name).to  eq new_name }
       			specify { expect(user.reload.email).to eq new_email }

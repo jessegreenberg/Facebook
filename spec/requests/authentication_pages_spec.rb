@@ -16,6 +16,7 @@ describe "Authentication" do
 		before {visit new_user_path}
 		
 		describe "with invalid information" do
+			before { click_button "Sign In" }
 			# have_selector checks for a particular HTML tag.
 			it { should have_selector('div.alert.alert-error') }
 		end
