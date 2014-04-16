@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		# note that paginate can even work through association!
 		@userposts = @user.userposts.paginate(page: params[:page])
+		@userpost = current_user.userposts.build if signed_in?
 	end
 	
 	def edit
@@ -47,13 +48,6 @@ class UsersController < ApplicationController
 		end
 
 		# Before filters
-
-		def signed_in_user
-			unless signed_in?
-				store_location
-				redirect_to root_url, notice: "Please sign in."
-			end
-		end
 
 		def correct_user
 			@user = User.find(params[:id])

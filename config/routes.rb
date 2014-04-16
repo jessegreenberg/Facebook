@@ -7,6 +7,7 @@ Facebook::Application.routes.draw do
 	#sessions resource with new, create, and destroy, gives us 
 	#everything we need to control sign in and sign out of users.
 	resources :sessions, only: [:new, :create, :destroy]
+	resources :userposts, only: [:create, :destroy, :index]
 	root 'users#new'
 	match '', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete' 

@@ -34,12 +34,12 @@ describe "User Pages" do
 	
 	describe "profile page" do
 		let(:user) { FactoryGirl.create(:user) }
+		let!(:m1) { FactoryGirl.create(:userpost, user: user, content: "This is my first post") }
+		let!(:m2) { FactoryGirl.create(:userpost, user: user, content: "This is another post") }
 		before do
 			sign_in user
+			visit user_path(user)
 		end
-		let(:m1) { FactoryGirl.create(:userpost, user: user, content: "This is my first post") }
-		let(:m2) { FactoryGirl.create(:userpost, user: user, content: "This is another post") }
-		before { visit user_path(user) }
 		
 		it { should have_content(user.name) }
 		it { should have_title("Facebook | #{user.name}") }

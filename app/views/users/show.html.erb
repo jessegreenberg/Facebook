@@ -3,11 +3,21 @@
 
 	<h1><%= @user.name %></h1>
 	
+	<% if signed_in? %>
+		<div class="row">
+			<aside class="span4">
+				<section>
+					<%= render 'shared/userpost_form' %>
+				</section>
+			</aside>
+		</div>
+	<% end %>
+
 	<div class="span8">
 		<% if @user.userposts.any? %>
 			<h3> User Posts (<%= @user.userposts.count %>)</h3>
 			<ol class="userposts">
-				<%=render @userposts %>
+				<%= render @userposts %>
 			</ol>
 			<%= will_paginate @userposts %>
 		<% end %>

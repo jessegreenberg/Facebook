@@ -84,6 +84,20 @@ describe "Authentication" do
 					it { should have_title('Facebook | Log In or Sign Up!') }
 				end
 			end
+
+			describe "in the Userposts controller" do
+
+				describe "submitting to the create action" do
+					before {post userposts_path }
+					specify { expect(response).to redirect_to(root_path) }
+				end
+
+				describe "submitting the descroy action" do
+					before { delete userpost_path(FactoryGirl.create(:userpost)) }
+					specify { expect(response).to redirect_to(root_path) }
+				end
+			end
+				
 		end
 
 		describe "as wrong user" do
