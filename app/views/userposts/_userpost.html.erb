@@ -3,4 +3,7 @@
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(userpost.created_at) %> ago.
 	</span>
+	<% if signed_in? %>
+		<%= link_to "delete", userpost, method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, title: userpost.content %>
+	<% end %>
 </li>

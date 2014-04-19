@@ -31,4 +31,16 @@ describe "UserpostPages" do
 			end
 		end
 	end
+
+	describe "userpost destruction" do
+		before { FactoryGirl.create(:userpost, user: user) }
+
+		describe "as a logged in user" do
+			before { visit newsfeed_path(user) }
+			
+			it "should delete a post" do
+				expect { click_link "delete" }.to change(Userpost, :count).by(-1)
+			end
+		end
+	end
 end
