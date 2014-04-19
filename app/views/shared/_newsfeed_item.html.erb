@@ -1,0 +1,9 @@
+<li id="<%= newsfeed_item.id %>" >
+	<span class="user">
+		<%= link_to newsfeed_item.user.name, newsfeed_item.user %>
+	</span>
+	<span class="content"><%= newsfeed_item.content %></span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(newsfeed_item.created_at) %> ago.
+	</span>
+</li>

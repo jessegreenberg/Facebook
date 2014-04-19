@@ -18,7 +18,7 @@ describe "UserpostPages" do
 
 			describe "error messages" do
 				before { click_button "Share" }
-				it { should have_content('error') }
+				it { should have_content('Please enter post content') }
 			end
 		end
 		

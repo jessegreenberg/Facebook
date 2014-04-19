@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
 	def User.hash(token)
 		Digest::SHA1.hexdigest(token.to_s)
 	end
+
+	# Feed method; This is a preliminary implementation
+	# The question mark escapes the input to avoid an SQL injection.
+	def newsfeed
+		Userpost.where("user_id = ?", id)
+	end
 	
 	
 	# The following is not accessable to an outside object.

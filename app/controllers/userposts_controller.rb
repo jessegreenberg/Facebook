@@ -11,6 +11,7 @@ class UserpostsController < ApplicationController
 			flash[:success] = "Status Posted!"
 			redirect_to user_url(current_user)
 		else
+			flash[:error] = 'Please enter post content.'
 			# for now, send to profile page.
 			redirect_to user_url(current_user)
 		end

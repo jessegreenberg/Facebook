@@ -116,6 +116,33 @@ describe "User Pages" do
 				end
 			end
 		end
-	end	
+	end
+	
+	describe "newfeed" do
+		let(:user) { FactoryGirl.create(:user) }
+		
+		describe "for signed in users" do
+			
+			before do
+				FactoryGirl.create(:userpost, user: user, content: "Lorem impsum")
+				#FactoryGirl.create(:userpost, user: user, content: "Dolor sit amet")
+				
+				sign_in user
+				visit newsfeed_path(user)
+			end
+			
+			it "should render the user's feed" do
+				user.newsfeed.each do |item|
+					expect(page).to have_selector("li##{item.id}", text: item.content)
+				end
+			end
+		end
+	end
+		
+		
+		
+		
+		
+		
 end
 	

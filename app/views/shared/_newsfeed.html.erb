@@ -1,0 +1,6 @@
+<% if @newsfeed_items.any? %>
+	<ol class="userposts">
+		<%= render partial: 'shared/newsfeed_item', collection: @newsfeed_items %>
+	</ol>
+	<%= will_paginate @newsfeed_items %>
+<% end %>

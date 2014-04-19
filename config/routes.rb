@@ -5,8 +5,10 @@ Facebook::Application.routes.draw do
 	#everything we need to control sign in and sign out of users.
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :userposts, only: [:create, :destroy, :index]
+
+	get 'newsfeed/:id' => 'users#newsfeed', as: :newsfeed
+
 	match '/signout', to: 'sessions#destroy', via: 'delete' 
-	# All of the routes below should probably be in the users resource!
 	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

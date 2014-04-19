@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	before_action :signed_in_user, only: [:edit, :update, :index]
 	before_action :correct_user, only: [:edit, :update]
+	
+	include UserHelper
+	
 
 	def new
 		@user = User.new
@@ -41,12 +44,21 @@ class UsersController < ApplicationController
 	def index
 		@users = User.paginate(page: params[:page])
 	end
-
+	
+	def newsfeed
+		@user = User.find(params[:id])
+		@possessive_name = possessive(@user.name)
+		if signed_in?
+			@userpost = current_user.userposts.build
+			@newsfeed_items = current_user.newsfeed.paginate(page: params[:page])
+		end
+	end
+	
 	private	
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
-
+		
 		# Before filters
 
 		def correct_user

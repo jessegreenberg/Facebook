@@ -32,7 +32,7 @@ describe "Authentication" do
 			#have_link is a capybara method to ensure an anchor tag
 			# in html has the correct text and optionally the coreect
 			# link location.
-			it { should have_title("Facebook | Newsfeed") }
+			it { should have_title("Facebook | #{user.name}'s Newsfeed") }
 			it { should have_link('Profile', href: user_path(user)) }
 			it { should have_link('Profile Preferences', href: edit_user_path(user)) }
 			it { should have_link('Sign Out', href: signout_path) }

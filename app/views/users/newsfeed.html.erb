@@ -1,0 +1,13 @@
+<% provide(:pagename, "#{@possessive_name} Newsfeed") %>
+
+
+<% if signed_in? %>
+	<div class ="row">
+		<div class="span8">
+			<h3> Newsfeed </h3>
+			<%= render 'shared/newsfeed' %>
+		</div>
+	</div>
+<% else %>
+	<h3> You shouldn't be here. </h3>
+<% end %>

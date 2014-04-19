@@ -30,6 +30,9 @@ describe User do
 	#existence validation
 	it { should be_valid }
 	
+	# Check for existence of a newsfeed specific to the user.
+	it { should respond_to(:newsfeed) }
+	
 	describe "When name is not present" do
 		before { @user.name = " " }
 		it { should_not be_valid }
@@ -131,6 +134,17 @@ describe User do
 		it "should have the older post ordered second" do
 			expect(@user.userposts.to_a).to eq [newer_userpost, older_userpost]
 		end
+		
+		describe "status" do
+			let(:unfollowed_post) do
+				FactoryGirl.create(:userpost, user: FactoryGirl.create(:user) )
+			end
+			
+			its(:newsfeed) { should include(newer_userpost) }
+			its(:newsfeed) { should include(older_userpost) }
+			its(:newsfeed) { should_not include(unfollowed_post) }
+		end	
+				
 	end
 	
 end
