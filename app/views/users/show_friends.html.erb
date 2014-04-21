@@ -1,0 +1,10 @@
+<% provide(:pagename, "#{@possessive_name} Friends") %>
+<div class="row">
+	<h1> Friends </h1>
+	
+	<% if @friends.any? %>
+		<ul class="friends">
+			<%= render @friends %>
+		</ul>
+	<% end %>
+</div>

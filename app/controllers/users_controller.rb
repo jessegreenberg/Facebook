@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :signed_in_user, only: [:edit, :update, :index]
+	before_action :signed_in_user, only: [:edit, :update, :index, :friends]
 	before_action :correct_user, only: [:edit, :update]
 	
 	include UserHelper
@@ -52,6 +52,13 @@ class UsersController < ApplicationController
 			@userpost = current_user.userposts.build
 			@newsfeed_items = current_user.newsfeed.paginate(page: params[:page])
 		end
+	end
+
+	def friends
+		@user = User.find(params[:id])
+		@possessive_name = possessive(@user.name)
+		@friends = @user.friends.paginate(page: params[:page])
+		render 'show_friends'
 	end
 	
 	private	

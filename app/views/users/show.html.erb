@@ -15,6 +15,7 @@
 	<% end %>
 
 	<div class="span8">
+		<%= render 'friendrequest_form' %>
 		<% if @user.userposts.any? %>
 			<h3> User Posts (<%= @user.userposts.count %>)</h3>
 			<ol class="userposts">

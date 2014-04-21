@@ -1,0 +1,4 @@
+<%= form_for(current_user.relationships.build(friend_b_id: @user.id)) do |f| %>
+	<div><%= f.hidden_field :friend_b_id %></div>
+	<%= f.submit "Send Friend Request", class: "btn btn-large btn-primary" %>
+<% end %>

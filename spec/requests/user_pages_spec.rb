@@ -95,8 +95,8 @@ describe "User Pages" do
 			visit users_path 
 		end
 
-		it { should have_title('Facebook | Friends') }
-		it { should have_content('Friends') }
+		it { should have_title('Facebook | All Users') }
+		it { should have_content('All Users') }
 		
 		it "should list all users" do
 			User.all.each do |user|
@@ -139,10 +139,34 @@ describe "User Pages" do
 		end
 	end
 		
-		
-		
-		
-		
+	describe "Friend list" do
+		let(:user) { FactoryGirl.create(:user) }
+		let(:other_user) { FactoryGirl.create(:user) }
+		before { user.make_friends_with!(other_user) }
+
+		describe "should show a list of the users friends" do
+			before do
+				sign_in user
+				visit friends_user_path(user)
+			end
+
+			it { should have_title("Facebook | #{user.name}'s Friends") }
+			it { should have_selector('h1', text: "Friends") }
+			it { should have_link(other_user.name, href: user_path(other_user)) }
+		end
+
+		describe "user should be on friend list of the other user" do
+			before do
+				sign_in other_user
+				visit friends_user_path(other_user)
+			end
+
+			it { should have_title("Facebook | #{other_user.name}'s Friends") }
+			it { should have_selector('h1', text: "Friends") }
+			it { should have_link(user.name, href: user_path(user)) }
+		end
+	end
+
 		
 end
 	
