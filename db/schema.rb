@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412233645) do
+ActiveRecord::Schema.define(version: 20140420023159) do
+
+  create_table "relationships", force: true do |t|
+    t.integer  "friend_a_id"
+    t.integer  "friend_b_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["friend_a_id", "friend_b_id"], name: "index_relationships_on_friend_a_id_and_friend_b_id", unique: true
+  add_index "relationships", ["friend_a_id"], name: "index_relationships_on_friend_a_id"
+  add_index "relationships", ["friend_b_id"], name: "index_relationships_on_friend_b_id"
 
   create_table "userposts", force: true do |t|
     t.string   "content"

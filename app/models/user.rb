@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
 	
 	# Create association between userposts
 	has_many :userposts
+
+	# Create association with relationships structure
+	has_many :relationships, foreign_key: "friend_a_id", dependent: :destroy
+	
+	# Create friends through relationships structure
+	# I THINK that the friend_b source is what tells rails that the friends array comes from the
+	# friend_b id set.
+	has_many :friends, through: :relationships, source: :friend_b
 	
 	# callback method to downcase the email before saving to user db.
 	# Not all adapters use case sensitive indices. I think this
@@ -38,6 +46,20 @@ class User < ActiveRecord::Base
 		Userpost.where("user_id = ?", id)
 	end
 	
+	def make_friends_with!(other_user)
+		self.relationships.create!(friend_b_id: other_user.id)
+		other_user.relationships.create!(friend_b_id: self.id)
+	end
+
+	def friends_with?(other_user)
+		self.relationships.find_by(friend_b_id: other_user.id)
+	end
+	
+	def unfriend!(other_user)
+		self.relationships.find_by(friend_b_id: other_user.id).destroy
+		other_user.relationships.find_by(friend_b_id: self.id).destroy
+	end
+
 	
 	# The following is not accessable to an outside object.
 	private

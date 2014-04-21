@@ -5,6 +5,7 @@ describe User do
 	before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar") }
 	
 	subject { @user }
+
 	# General attributes in the schema
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
@@ -32,6 +33,16 @@ describe User do
 	
 	# Check for existence of a newsfeed specific to the user.
 	it { should respond_to(:newsfeed) }
+
+ 	# Check for existence of the relationship structure
+	it { should respond_to(:relationships) }
+	
+	# Check for existence of friendship model through the relationship structure
+	it { should respond_to(:friends) }
+
+	# Check for existence of methods for friend/relationship creating
+	it { should respond_to(:make_friends_with!) }
+	it { should respond_to(:friends_with?) }
 	
 	describe "When name is not present" do
 		before { @user.name = " " }
@@ -145,6 +156,50 @@ describe User do
 			its(:newsfeed) { should_not include(unfollowed_post) }
 		end	
 				
+	end
+
+	describe "When creating a friendship" do
+	
+		let(:other_user) { FactoryGirl.create(:user) }
+		before do
+			@user.save
+			@user.make_friends_with!(other_user)
+		end
+
+		describe "the user should become friends with the other user" do
+			it { should be_friends_with(other_user) }
+			its(:friends) { should include(other_user) }
+		end
+		
+		describe "the relationship should be mutual" do
+			subject { other_user }
+	
+			it { should be_friends_with(@user) }
+			its(:friends) { should include(@user) }
+		end
+	end
+
+	describe "When deleting friends" do
+
+		let(:other_user) { FactoryGirl.create(:user) }
+		before do
+			@user.save
+			@user.make_friends_with!(other_user)
+		end
+
+		before { @user.unfriend!(other_user) }
+		
+		describe "the user should no longer be friends with the other user" do
+			it { should_not be_friends_with(other_user) }
+			its(:friends) { should_not include(other_user) }
+		end
+
+		describe "the deletion should be mutual between both users" do
+		
+			subject { other_user }
+			it { should_not be_friends_with(@user) }
+			its(:friends) { should_not include(@user) }
+		end
 	end
 	
 end
