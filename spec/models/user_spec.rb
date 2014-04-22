@@ -42,7 +42,10 @@ describe User do
 
 	# Check for existence of methods for friend/relationship creating
 	it { should respond_to(:make_friends_with!) }
-	it { should respond_to(:friends_with?) }
+	it { should respond_to(:friends_with) }
+	it { should respond_to(:make_friend_request) }
+	it { should respond_to(:deny_request) }
+	it { should respond_to(:accept_friend_reqeust!) }
 	
 	describe "When name is not present" do
 		before { @user.name = " " }
@@ -163,15 +166,27 @@ describe User do
 		let(:other_user) { FactoryGirl.create(:user) }
 		before do
 			@user.save
-			@user.make_friends_with!(other_user)
 		end
-
+	
+		describe "sending a friend request" do
+			
+			before do
+				{ @user.make_friend_request(other_user) }
+			end
+			
+			it { should_not be_friends_with(other_user) }
+			
+		end
+		
 		describe "the user should become friends with the other user" do
+			before { @user.make_friends_with!(other_user) }
 			it { should be_friends_with(other_user) }
 			its(:friends) { should include(other_user) }
 		end
 		
 		describe "the relationship should be mutual" do
+		
+			before { @user.make_friends_with(other_user) }
 			subject { other_user }
 	
 			it { should be_friends_with(@user) }

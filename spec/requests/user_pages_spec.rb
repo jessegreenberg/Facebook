@@ -142,10 +142,10 @@ describe "User Pages" do
 	describe "Friend list" do
 		let(:user) { FactoryGirl.create(:user) }
 		let(:other_user) { FactoryGirl.create(:user) }
-		before { user.make_friends_with!(other_user) }
-
+		
 		describe "should show a list of the users friends" do
 			before do
+				user.make_friends_with!(other_user)
 				sign_in user
 				visit friends_user_path(user)
 			end
@@ -157,6 +157,7 @@ describe "User Pages" do
 
 		describe "user should be on friend list of the other user" do
 			before do
+				user.make_friends_with!(other_user)
 				sign_in other_user
 				visit friends_user_path(other_user)
 			end
@@ -164,9 +165,9 @@ describe "User Pages" do
 			it { should have_title("Facebook | #{other_user.name}'s Friends") }
 			it { should have_selector('h1', text: "Friends") }
 			it { should have_link(user.name, href: user_path(user)) }
+			
 		end
 	end
 
-		
 end
 	

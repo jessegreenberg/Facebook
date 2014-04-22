@@ -1,5 +1,5 @@
 Given /^a user visits the signin page$/ do
-	visit root_path
+	visit new_user_path
 end
 
 When /^they submit invalid signin information$/ do
