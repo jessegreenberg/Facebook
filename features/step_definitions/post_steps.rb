@@ -1,4 +1,4 @@
-When /^they enter a new status in the content box$/ do
+When /^the user enters content in the post box$/ do
 	fill_in  'userpost_content', with: "Lorem Imspum"
 end
 
@@ -11,10 +11,11 @@ Then /^they should see their post on their profile page$/ do
 end
 
 And /^they should see their post on the Newsfeed$/ do
-	visit newsfeed_path
+	visit newsfeed_path(@user)
 	expect(page).to have_content("Lorem Imspum")
 end
 
 Given /^a user visits their profile page$/ do
-	visit user_path
+	@user = FactoryGirl.create(:user)
+	before { sign_in user }
 end

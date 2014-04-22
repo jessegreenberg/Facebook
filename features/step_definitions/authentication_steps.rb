@@ -29,3 +29,23 @@ end
 Then /^they should see a signout link$/ do
 	expect(page).to have_link('Sign Out', href: signout_path)
 end
+
+Given /^the user is logged in to facebook$/ do
+	@user = User.create(name: "Example User", email: "example@example.com", password: "foobar", password_confirmation: "foobar")
+
+	visit new_user_path
+	
+	within(".new") do
+		fill_in "Email", with: @user.email
+		fill_in "Password", with: @user.password
+		click_button "Sign In"
+		
+	end
+end
+
+	
+	
+	
+	
+	
+	
