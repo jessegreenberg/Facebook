@@ -36,7 +36,7 @@ describe "Authentication" do
 			it { should have_link('Profile', href: user_path(user)) }
 			it { should have_link('Profile Preferences', href: edit_user_path(user)) }
 			it { should have_link('Sign Out', href: signout_path) }
-			it { should have_link('Friends', href: users_path) }
+			it { should have_link('Friends', href: friends_user_path(user)) }
 			it { should_not have_link('Sign In', href: new_user_path) }
 
 			describe "followed by signout" do

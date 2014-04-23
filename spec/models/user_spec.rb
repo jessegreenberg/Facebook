@@ -171,7 +171,7 @@ describe User do
 		describe "sending a friend request" do
 			
 			before do
-				{ @user.make_friend_request(other_user) }
+				@user.make_friend_request(other_user) 
 			end
 			
 			it { should_not be_friends_with(other_user) }
