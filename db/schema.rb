@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422004021) do
+ActiveRecord::Schema.define(version: 20140423180429) do
 
   create_table "relationships", force: true do |t|
     t.integer  "friend_a_id"
     t.integer  "friend_b_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "friends"
+    t.string   "friendship_status"
   end
 
   add_index "relationships", ["friend_a_id", "friend_b_id"], name: "index_relationships_on_friend_a_id_and_friend_b_id", unique: true

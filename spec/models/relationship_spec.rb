@@ -15,7 +15,7 @@ describe Relationship do
 
 		it { should respond_to(:friend_a) }
 		it { should respond_to(:friend_b) }
-		it { should respond_to(:friends?) }
+		it { should respond_to(:friend_status) }
 		its(:friend_a) { should eq person }
 		its(:friend_b) { should eq different_person }
 	end
