@@ -6,3 +6,5 @@ Feature: Signing Out of Facebook
 			When they click on the Sign Out link
 			Then they should be logged out of facebook
 				And they should see the sign in page
+
+		

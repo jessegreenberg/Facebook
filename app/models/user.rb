@@ -46,6 +46,16 @@ class User < ActiveRecord::Base
 		Userpost.where("user_id = ?", id)
 	end
 	
+	def make_friend_request
+	end
+	
+	def accept_friend_request!
+	end
+	
+	def deny_request
+	end
+	
+	
 	def make_friends_with!(other_user)
 		self.relationships.create!(friend_b_id: other_user.id)
 		other_user.relationships.create!(friend_b_id: self.id)

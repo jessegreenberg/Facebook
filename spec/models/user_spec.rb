@@ -42,10 +42,10 @@ describe User do
 
 	# Check for existence of methods for friend/relationship creating
 	it { should respond_to(:make_friends_with!) }
-	it { should respond_to(:friends_with) }
+	it { should respond_to(:friends_with?) }
 	it { should respond_to(:make_friend_request) }
 	it { should respond_to(:deny_request) }
-	it { should respond_to(:accept_friend_reqeust!) }
+	it { should respond_to(:accept_friend_request!) }
 	
 	describe "When name is not present" do
 		before { @user.name = " " }
