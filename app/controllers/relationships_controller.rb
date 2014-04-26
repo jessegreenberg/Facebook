@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 	
 	def create
 		@user = User.find(params[:relationship][:friend_b_id])
-		current_user.make_friends_with!(@user)
+		current_user.make_friend_request(@user)
 		redirect_to @user
 	end
 	

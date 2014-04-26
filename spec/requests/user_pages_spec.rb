@@ -145,7 +145,8 @@ describe "User Pages" do
 		
 		describe "should show a list of the users friends" do
 			before do
-				user.make_friends_with!(other_user)
+				user.make_friend_request(other_user)
+				other_user.accept_friend_request!(user)
 				sign_in user
 				visit friends_user_path(user)
 			end
@@ -157,7 +158,8 @@ describe "User Pages" do
 
 		describe "user should be on friend list of the other user" do
 			before do
-				user.make_friends_with!(other_user)
+				user.make_friend_request(other_user)
+				other_user.accept_friend_request!(user)
 				sign_in other_user
 				visit friends_user_path(other_user)
 			end

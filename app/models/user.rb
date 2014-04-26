@@ -46,20 +46,26 @@ class User < ActiveRecord::Base
 		Userpost.where("user_id = ?", id)
 	end
 	
-	def make_friend_request
+	def make_friend_request(other_user)
+		self.relationships.create(friend_b_id: other_user.id, friendship_status: 0)
+		other_user.relationships.create(friend_b_id: self.id, friendship_status: 1)
 	end
 	
-	def accept_friend_request!
+	def accept_friend_request!(other_user)
+		self.relationships.find_by(friend_b_id: other_user.id) do
+			relationships[friendship_status] = 2
+		end
+		other_user.relationships.find_by(friend_b_id: other_user.id) do
+			relationships[friendship_status] = 2
+		end
 	end
 	
-	def deny_request
-	end
-	
-	
+=begin
 	def make_friends_with!(other_user)
 		self.relationships.create!(friend_b_id: other_user.id)
 		other_user.relationships.create!(friend_b_id: self.id)
 	end
+=end
 
 	def friends_with?(other_user)
 		self.relationships.find_by(friend_b_id: other_user.id)

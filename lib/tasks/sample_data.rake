@@ -31,7 +31,7 @@ namespace :db do
 		
 		first_group = users[2..25]
 		
-		first_group.each { |newfriend| user.make_friends_with!(newfriend) }
+		first_group.each { |newfriend| user.make_friend_request(newfriend) }
 	end
 
 end

@@ -7,4 +7,13 @@
 			<%= render @friends %>
 		</ul>
 	<% end %>
+	
+	<h1> Friend Requests </h1>
+	
+	<% if @pending_friends.any? %>
+		<u1 class="pending_friends" %>
+			<%= render 'pending_friend_form' %>
+		</u1>
+	<% end %>
+		
 </div>
