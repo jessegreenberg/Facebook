@@ -49,7 +49,19 @@ user.rb
 
 ##Todo:
 
-- Change root\_\* paths to signin\_\* paths
-	- includes changing routes aswell
+1. Friend Requests
+        - need to add 'confirm' or 'deny' button to "friends" page
+        - format friends page better
 
-- Listing 9.16
+2. Search function
+        - https://we.riseup.net/rails/simple-search-tutorial
+        - search bar area at top of page
+
+3. News feed
+        - should be simple after Friend Requesting is complete
+
+4. Security flaw?
+        - feature it!
+
+5. Extra stuff?
+
