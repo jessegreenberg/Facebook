@@ -49,23 +49,23 @@ user.rb
 
 ##Todo:
 
-1. ~~Friend Requests~~
+* ~~Friend Requests~~
 
   - ~~need to add 'confirm' or 'deny' button to "friends" page~~
   - ~~format friends page better~~
 
-2. Search function
+* Search function
 
   - https://we.riseup.net/rails/simple-search-tutorial
   - search bar area at top of page
 
-3. News feed
+* News feed
 
   - should be simple after Friend Requesting is complete
 
-4. Security flaw?
+* Security flaw?
 
   - feature it!
 
-5. Cleanup
+* Cleanup
 
