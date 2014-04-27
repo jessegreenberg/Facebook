@@ -49,10 +49,10 @@ user.rb
 
 ##Todo:
 
-1. Friend Requests
+~~1. Friend Requests
 
         - need to add 'confirm' or 'deny' button to "friends" page
-        - format friends page better
+        - format friends page better~~
 
 2. Search function
 
@@ -67,5 +67,5 @@ user.rb
 
         - feature it!
 
-5. Extra stuff?
+5. Cleanup
 
