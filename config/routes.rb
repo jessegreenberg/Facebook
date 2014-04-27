@@ -10,7 +10,7 @@ Facebook::Application.routes.draw do
 	#everything we need to control sign in and sign out of users.
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :userposts, only: [:create, :destroy, :index]
-	resources :relationships, only: [:create, :destroy]
+	resources :relationships, only: [:create, :destroy, :update]
 	get 'newsfeed/:id' => 'users#newsfeed', as: :newsfeed
 
 	match '/signout', to: 'sessions#destroy', via: 'delete' 

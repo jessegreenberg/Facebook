@@ -52,12 +52,8 @@ class User < ActiveRecord::Base
 	end
 	
 	def accept_friend_request!(other_user)
-		self.relationships.find_by(friend_b_id: other_user.id) do
-			relationships[friendship_status] = 2
-		end
-		other_user.relationships.find_by(friend_b_id: other_user.id) do
-			relationships[friendship_status] = 2
-		end
+		self.relationships.find_by(friend_b_id: other_user.id).update(friendship_status: 2)
+		other_user.relationships.find_by(friend_b_id: self.id).update(friendship_status: 2)
 	end
 	
 =begin
