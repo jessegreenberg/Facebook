@@ -62,6 +62,16 @@ class UsersController < ApplicationController
 		render 'show_friends'
 	end
 	
+	# Part of code from riseup.net
+	def search
+		@users = Users.all
+		@user = User.search params[:search]
+	end
+	
+	def search_results
+		@users = User.search params[:search]
+	end
+	
 	private	
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)

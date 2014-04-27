@@ -12,7 +12,8 @@ Facebook::Application.routes.draw do
 	resources :userposts, only: [:create, :destroy, :index]
 	resources :relationships, only: [:create, :destroy, :update]
 	get 'newsfeed/:id' => 'users#newsfeed', as: :newsfeed
-
+	get 'search/' => 'users#search', as: :search_bar
+	post 'search/' => 'users#search_results', as: :search_results
 	match '/signout', to: 'sessions#destroy', via: 'delete' 
 	
   # The priority is based upon order of creation: first created -> highest priority.
