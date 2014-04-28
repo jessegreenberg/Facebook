@@ -58,7 +58,8 @@ user.rb
 
   - ~~https://we.riseup.net/rails/simple-search-tutorial~~
   - ~~search bar area at top of page~~
-  - format search correctly
+  - ~~format search correctly~~
+  - ~~fix search field return strings~~
 
 * News feed
 
