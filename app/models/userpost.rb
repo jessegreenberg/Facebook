@@ -10,4 +10,10 @@ class Userpost < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
 	validates :content, presence: true
+	
+	def self.from_friends_of(user)
+		friend_ids = user.friend_ids
+		where("user_id IN (?) OR user_id = ?", friend_ids, user)
+	end
 end
+

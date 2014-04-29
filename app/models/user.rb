@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
 	# Feed method; This is a preliminary implementation
 	# The question mark escapes the input to avoid an SQL injection.
 	def newsfeed
-		Userpost.where("user_id = ?", id)
+		Userpost.from_friends_of(self)
 	end
 	
 	def make_friend_request(other_user)
