@@ -12,8 +12,7 @@ class Userpost < ActiveRecord::Base
 	validates :content, presence: true
 	
 	def self.from_friends_of(user)
-		friend_ids = user.friend_ids
+		#friend_ids = user.relationships.find_by(friendship_status: 2)
 		where("user_id IN (?) OR user_id = ?", friend_ids, user)
 	end
 end
-
