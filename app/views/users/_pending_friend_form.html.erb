@@ -6,10 +6,10 @@
 			<%= link_to user.name, user %>
 			<%= form_for(current_user.relationships.find_by(friend_b_id: user.id)) do |f| %>
 				<div> <%= f.hidden_field :friend_b_id %></div>
-				<%= f.submit "Accept", class: "btn btn-large" %>
+				<%= f.submit "Accept", class: "btn btn-small" %>
 			<% end %>
 			<%= form_for(current_user.relationships.find_by(friend_b_id: user.id), html: {method: :delete}) do |f| %>
-			 <%= f.submit "Deny", class: "btn btn-large" %>
+			 <%= f.submit "Deny", class: "btn btn-small" %>
 			<% end %>
 		</li>
 	<% end %>
