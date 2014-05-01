@@ -6,15 +6,16 @@ class UserpostsController < ApplicationController
 	end
 	
 	def create
+		store_view
 		@user = current_user
 		@userpost = current_user.userposts.build(userpost_params)
 		if @userpost.save
 			flash[:success] = "Status Posted!"
-			redirect_to user_url(current_user)
+			redirect_to(:back)
 		else
 			flash[:error] = 'Please enter post content.'
 			# for now, send to profile page.
-			redirect_to user_url(current_user)
+			redirect_to(:back)
 		end
 	end
 	
@@ -32,5 +33,9 @@ class UserpostsController < ApplicationController
 		def correct_user
 			@userpost = current_user.userposts.find_by(id: params[:id])
 			redirect_to newsfeed_path(user) if @userpost.nil?
+		end
+		
+		def store_view
+			session[:return_to] = request.url if request.get?
 		end
 end
