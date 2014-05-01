@@ -1,9 +1,11 @@
 <% provide(:pagename, "Preferences") %>
-<h1>Update your profile</h1>
+
 
 <div class="row">
   <div class="span6 offset3">
+	<h5>Update your profile</h5>
     <%= form_for(@user) do |f| %>
+
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
@@ -17,9 +19,36 @@
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      
+      <%= f.label :hobbies %>
+      <%= f.text_area :hobbies %>
+      
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+      
+      <%= f.label :gender %>
+      <%= f.text_field :gender %>
+      
+      <%= f.label :occupation %>
+      <%= f.text_field :ocupation %>
+      
+      <%= f.label "Favorite books" %>
+      <%= f.text_area :books %>
+      
+      <%= f.label "Favorite " + "Movies" %>
+      <%= f.text_area :movies  %>
+      
+      <%= f.label "Favorite bands" %>
+      <%= f.text_area :bands %>
+      
+      <%= f.label "Favorite song" %>
+      <%= f.text_field :song %>
+      
+      <%= f.label :about_me %>
+      <%= f.text_area :about_me %>
+      
+      <%= f.submit "Update Account", class: "btn btn-large btn-primary" %>
     <% end %>
-
+    
   </div>
 </div>

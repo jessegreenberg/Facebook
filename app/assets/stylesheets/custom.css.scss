@@ -33,20 +33,29 @@ textarea {
 }
 
 
+info {
+	vertical-align: 1em;
+}
+
 /* typography */
 
-h1, h2, h3, h4, h5, h6, h7 {
+h1, h2, h3, h4, h5, h6, h7, hdrop {
 	line-height: 0;
 }
 
+h4 { 
+	padding-top: 1em;
+}
 
 h1 {
-	padding-top: 5em;
+	padding-top: 1em;
 	font-size: 3em;
 	letter-spacing: -2px;
 	margin-bottom: 20px;
 	text-align: left;
 }
+
+
 
 h7 {
 	padding-top: 1em;
@@ -65,12 +74,31 @@ h2{
 	color: #999;
 }
 h3{
-	font-size: 2em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 2.5em;
 	letter-spacing: -1px;
 	text-align: right;
 	float: 10%;
 }
+h5{
 
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 2.5em;
+	letter-spacing: -1px;
+	float: 10%;
+}
+
+h6 {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 2.5em;
+	letter-spacing: -1px;
+	text-align: center;
+	float: 10%;
+	
+}
 p { 
 	font-size: 1.1em;
 	line-height: 1.7em;
@@ -80,12 +108,19 @@ p {
 /* forms */
 input, textarea, select, .undeditable-input {
 	border: 1px solid #bbb;
-	width: 100%;
+	width: 80%;
 	margin-bottom: 15px;
 	//@include box_sizing;
 }
 
+button { 
+	color: #900;
+}
+
 input {
+
+	color: #0088CC;
+	font-size: 135%;
 	height: auto !important;
 }
 
@@ -110,7 +145,6 @@ input {
 		border-top: 1px solid $grayLighter;
 	}
 }
-
 
 /* USER POSTS */
 

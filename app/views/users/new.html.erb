@@ -4,7 +4,7 @@
 <html>
 	<%= render 'layouts/title' %>
 	<h7>facebook</h7>
-	<h3>Sign In </h3>
+	<h1>Sign In </h1>
 	<body>
 		<div class="foo" >
 		
@@ -25,9 +25,9 @@
 			<h2>
 				Connect with friends and share your interests on facebook!
 			</h2>
-			<h3>Sign Up</h3>
+			<h6>Sign Up</h6>
 			<div class="row">
-				<div class="span6 offset3">
+				<div class="span5 offset3">
 					<%= form_for(@user) do |f| %>
 						<%= render 'shared/error_messages', object: f.object %>
 						<%= f.label :name %>

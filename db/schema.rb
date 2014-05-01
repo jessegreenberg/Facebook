@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426174332) do
+ActiveRecord::Schema.define(version: 20140429195845) do
 
   create_table "relationships", force: true do |t|
     t.integer  "friend_a_id"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20140426174332) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "ocupation"
+    t.text     "books"
+    t.text     "movies"
+    t.text     "bands"
+    t.string   "song"
+    t.text     "hobbies"
+    t.text     "about_me"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
