@@ -113,7 +113,14 @@ input, textarea, select, .undeditable-input {
 	//@include box_sizing;
 }
 
+button { 
+	color: #900;
+}
+
 input {
+
+	color: #0088CC;
+	font-size: 135%;
 	height: auto !important;
 }
 
