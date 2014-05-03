@@ -16,6 +16,7 @@ Facebook::Application.routes.draw do
 	post 'search/' => 'users#search_results', as: :search_results
 	match '/signout', to: 'sessions#destroy', via: 'delete'
 	match '/clear', to: 'userposts#clear', via: 'delete'
+	root :to => 'users#newsfeed', :id => '1'
 	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -51,6 +51,8 @@ class UsersController < ApplicationController
 		if signed_in?
 			@userpost = current_user.userposts.build
 			@newsfeed_items = current_user.newsfeed.paginate(page: params[:page])
+		else
+			redirect_to new_user_path
 		end
 	end
 
