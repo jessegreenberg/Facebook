@@ -1,9 +1,16 @@
 
 <%= form_tag :controller => 'users', :action => 'search', :method => 'get' do %>
 	<div class="textfield">
-		<%= text_field_tag :search, params[:search], :id => 'search_field' %>
-	
-		<%= submit_tag "Find Friends", :name => nil %>
+		<div class="row">
+			<div class="span4">
+				<%= text_field_tag :search, params[:search], :id => 'search_field' %>
+			</div>
+			<div class="span5">
+				<div class="search_form">
+					<%= submit_tag "Find Friends", :name => nil %>
+				</div>
+			</div>
+		</div>
 	</div>
 <% end %>
 

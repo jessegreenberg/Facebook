@@ -20,11 +20,6 @@ textarea {
 	resize: vertical;
 }
 
-textfield {
-	width: 50%;
-}
-
-
 .center {
 	background-color: teal;
 	text-align: center;
@@ -111,14 +106,21 @@ p {
 
 
 /* forms */
-input, textarea, select, .undeditable-input {
+textarea, select, .undeditable-input {
 	border: 1px solid #bbb;
 	width: 80%;
 	margin-bottom: 15px;
 	//@include box_sizing;
 }
 
-button { 
+input {
+	border: 1px solid #bbb;
+	margin-bottom: 15px;
+	//@include box_sizing;
+	width: 100%
+}
+
+button {
 	color: #900;
 }
 
