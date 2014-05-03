@@ -3,7 +3,7 @@
 	<h1> Friends </h1>
 	
 	<% if @friends.any? %>
-		<ul class="friends">
+		<ul class="users">
 			<%= render @friends %>
 		</ul>
 	<% end %>
@@ -11,7 +11,7 @@
 	<h1> Friend Requests </h1>
 	
 	<% if @pending_friends.any? %>
-		<u1 class="pending_friends" %>
+		<u1 class="users" %>
 			<%= render 'pending_friend_form' %>
 		</u1>
 	<% end %>
