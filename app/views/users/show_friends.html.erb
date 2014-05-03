@@ -4,7 +4,22 @@
 	
 	<% if @friends.any? %>
 		<ul class="users">
-			<%= render @friends %>
+			<div class="row">
+				<% @friends.each do |friend| %>
+					<div class="row">
+						<div class="span4">
+							<li>
+								<%= link_to friend.name, friend %>
+							</li>
+						</div>
+						<div class="span1">
+							<%= form_for(current_user.relationships.find_by(friend_b_id: friend.id), html: {method: :delete}) do |f| %>
+								<%= f.submit "Unfriend", class: "btn btn-small" %>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+			</div>
 		</ul>
 	<% end %>
 	

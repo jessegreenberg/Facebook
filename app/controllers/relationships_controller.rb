@@ -10,7 +10,7 @@ class RelationshipsController < ApplicationController
 	def destroy
 		@user = Relationship.find(params[:id]).friend_b
 		current_user.unfriend!(@user)
-		redirect_to user_path(current_user)
+		redirect_to(:back)
 	end
 	
 	def update
