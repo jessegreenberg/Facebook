@@ -1,7 +1,10 @@
 <% provide(:pagename, "Search Results") %>
 
-<ul>
 <h1> Friends Search </h1>
+
+<ul class="users">
+
+
 	<% @users.each do |user| %>
 		<li>
 			<%= link_to user.name, user %>

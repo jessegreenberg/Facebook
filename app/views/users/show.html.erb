@@ -17,6 +17,7 @@
 		<% end %>
 	
 	<%= render 'friendrequest_form' %>
+	
 	<% if @user.userposts.any? %>
 		<h5> User Posts </h5>
 		<ol class="userposts">
@@ -40,7 +41,7 @@
 			<%= @user.age %>
 		</div>
 		
-		<h4> Favorite Gender </h4>
+		<h4> Gender </h4>
 		<div class="row">
 			<%= @user.gender %>
 		</div>

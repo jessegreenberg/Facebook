@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 	def friends
 		@user = User.find(params[:id])
 		@possessive_name = possessive(@user.name)
-		@friends = @user.friends.paginate(page: params[:page]).where("friendship_status = 2")
+		@friends = @user.friends.where("friendship_status = 2")
 		@pending_friends = @user.friends.paginate(page: params[:page]).where("friendship_status = 1")
 		render 'show_friends'
 	end

@@ -23,6 +23,12 @@ class UserpostsController < ApplicationController
 		@userpost.destroy
 		redirect_to newsfeed_path(current_user)
 	end
+	
+	def clear
+		@user = current_user
+		@user.userposts.delete_all
+		redirect_to user_path(@user)
+	end
 
 	private
 		

@@ -13,12 +13,13 @@ body {
 }
 
 section {
-	overflow: auto;
+	overflow: auto;	
 }
 
 textarea {
 	resize: vertical;
 }
+
 
 .center {
 	background-color: teal;
@@ -117,6 +118,7 @@ button {
 	color: #900;
 }
 
+
 input {
 
 	color: #0088CC;
@@ -124,6 +126,10 @@ input {
 	height: auto !important;
 }
 
+.pending_friends {
+	padding-top: 1em;
+}
+	
 
 #error_explanation {
 	color: #f00;

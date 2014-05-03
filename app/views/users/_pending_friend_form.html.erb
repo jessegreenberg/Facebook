@@ -1,16 +1,22 @@
 
-<div id="accept_friend_form">
+<ul class="pending_friends">
 	
 	<% @pending_friends.each do |user| %>
-		<li>
-			<%= link_to user.name, user %>
-			<%= form_for(current_user.relationships.find_by(friend_b_id: user.id)) do |f| %>
-				<div> <%= f.hidden_field :friend_b_id %></div>
-				<%= f.submit "Accept", class: "btn btn-large" %>
-			<% end %>
-			<%= form_for(current_user.relationships.find_by(friend_b_id: user.id), html: {method: :delete}) do |f| %>
-			 <%= f.submit "Deny", class: "btn btn-large" %>
-			<% end %>
-		</li>
+		<div class="row">
+			<div class="span1">
+				<%= link_to user.name, user %>
+			</div>
+			<div class="span1">
+				<%= form_for(current_user.relationships.find_by(friend_b_id: user.id)) do |f| %>
+					<div> <%= f.hidden_field :friend_b_id %></div>
+					<%= f.submit "Accept", class: "btn btn-small" %>
+				<% end %>
+			</div>
+			<div class="span1">
+				<%= form_for(current_user.relationships.find_by(friend_b_id: user.id), html: {method: :delete}) do |f| %>
+					<%= f.submit "Deny", class: "btn btn-small" %>
+				<% end %>
+			</div>
+		</div>
 	<% end %>
-</div>
+</ul>
