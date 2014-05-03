@@ -68,9 +68,7 @@ class User < ActiveRecord::Base
 	# Search function found on riseup.net 
 	def self.search(search)
 		search_condition = "%" + search + "%"
-		#find(:all, :conditions => ['name LIKE ?', search_condition])
-
-    		find(:all, :conditions => 'name LIKE \'%#{search_condition}%\'') #SQL Injectable!
+		find(:all, :conditions => ['name LIKE ?', search_condition])
 	end 
 
 	
