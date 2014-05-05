@@ -1,5 +1,7 @@
 # Ruby on Rails Project - - - Facebook
 
+## FOR INSTRUCTORS
+
 Team members: 
 Doug Fitzpatrick, Jesse Greenberg, Nick Reynders
 
@@ -12,7 +14,23 @@ The project is a recreation of the Facebook application when it first started in
 
 user.rb
 	Validates users' personal information, such as email and password
-
+	It also holds several functions involving relationship control.
+	
+userpost.rb
+	Contains content and a userid.  The user id is used to keep track of
+	which user the userpost belongs to.
+	
+relationship.rb
+	Contains the structure of relationships.  There is a friend_a, which is the
+	foreign key to the users table, a friend_b which is the id of the friend
+	of friend_a, and friendship_status, which keeps track of whether friend_a
+	submited a friend reqeust to friend_b, is deciding on an action for a friend
+	request from friend_b, or is curently friends with friend_b.  Note that the 
+	foreign key restriction on friend_a means that each relationship has two entries
+	in the relationship table so that information about a user's friends can be called
+	on for each user in the relationship.
+	
+	
 ### Views: 
 
  - friend_list.html.erb
@@ -70,4 +88,16 @@ user.rb
   - feature it!
 
 * Cleanup
+
+## Additional Notes:
+	
+	All features defined in the project rubric are functional, and stories defined
+	through pivotal tracker are implemented.  We did change one thing: user profile pages
+	are not exclusively viewable by the users friends.  We wanted to make sure that 
+	profile pages were open to any user.  This is how facebook is currently implemented, and
+	we wanted to keep this functionality. 
+	
+	heroku link: facebook-3308.herokuapp.com
+
+
 
