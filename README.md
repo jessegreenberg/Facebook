@@ -60,9 +60,21 @@ relationship.rb
 
 ### Controller: 
 
- - facebook_pages_controller.rb
  - users_controller.rb
  	- Contains default code needed for structure, inherits the data it uses.
+ 	
+ - sessions_controller.rb
+	- Contains methods needed for creating and destroying a user session so that
+	the user can sign in and out as desired.
+	
+ - relationships_controller.rb
+	- Contains methods needed to perform actions to the relationships table, including
+	the ability to create relationships, destroy relationships, and update the status 
+	of a relationship when a friend request is accepted.
+	
+ - userposts_controller.rb
+	- Holds controller methods to create and destroy userposts, as well as a clear
+	method which deletes all of the current users posts.
 
 
 ##Todo:
